@@ -1,131 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sia Tattoo Studio – App</title>
-    <script defer src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script defer src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script defer src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
-    <script defer src="https://unpkg.com/lucide-react/dist/umd/lucide-react.min.js"></script>
-    <script defer src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  </head>
-  <body class="bg-zinc-50">
-    <div id="root"></div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sia Tattoo Studioz | Nallasopara East</title>
+  <meta name="description" content="Sia Tattoo Studioz — Custom tattoos, piercing, portraits and 3D work in Nallasopara East. Book appointments via WhatsApp: +91 97644 49906." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { --brand:#0ea5e9; }
+    html { scroll-behavior:smooth; }
+    body { font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    /* Simple marquee shimmer for hero text */
+    .shine { background: linear-gradient(90deg, rgba(255,255,255,.05), rgba(255,255,255,.4), rgba(255,255,255,.05)); background-size:200% 100%; animation: shine 3.5s linear infinite; }
+    @keyframes shine { from { background-position:200% 0; } to { background-position:-200% 0; } }
+  </style>
+  <!-- LocalBusiness structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TattooParlor",
+    "name": "Sia Tattoo Studioz",
+    "image": "",
+    "telephone": "+919764449906",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Shop No. 2, Sushila Niwas, Opposite Post Office, Near Tulinj Naka, Nallasopara East",
+      "postalCode": "401209",
+      "addressLocality": "Nallasopara East",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "IN"
+    },
+    "url": "https://your-github-username.github.io/sia-tattoo-studioz/",
+    "priceRange": "₹₹"
+  }
+  </script>
+</head>
+<body class="bg-neutral-950 text-neutral-100">
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 bg-neutral-950/80 backdrop-blur border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#home" class="text-xl font-extrabold tracking-tight"><span class="text-sky-400">Sia</span> Tattoo Studioz</a>
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a href="#services" class="hover:text-sky-300">Services</a>
+        <a href="#pricing" class="hover:text-sky-300">Pricing</a>
+        <a href="#gallery" class="hover:text-sky-300">Gallery</a>
+        <a href="#location" class="hover:text-sky-300">Location</a>
+        <a href="#contact" class="hover:text-sky-300">Contact</a>
+      </nav>
+      <a id="navWhatsApp" href="https://wa.me/919764449906?text=Hi%20Sia%20Tattoo%20Studioz%2C%20I%20want%20to%20book%20an%20appointment." target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-2xl bg-sky-500 hover:bg-sky-400 text-black font-semibold px-4 py-2">
+        Book on WhatsApp
+      </a>
+    </div>
+  </header>
 
-    <script type="text/babel">
-      // ————————————————————————————————————————————
-      // The full React code goes here (from earlier app)
-      // ————————————————————————————————————————————
+  <!-- HERO -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="absolute inset-0 opacity-20" style="background: radial-gradient(800px 400px at 20% 10%, rgba(14,165,233,.25), transparent), radial-gradient(800px 400px at 80% 20%, rgba(99,102,241,.25), transparent);"></div>
+    <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+          Ink that tells <span class="text-sky-400 shine px-2 rounded">your story</span>
+        </h1>
+        <p class="mt-4 text-neutral-300 text-lg">Custom line art, color work, portraits, 3D tattoos & piercing at budget-friendly rates. Located in Nallasopara East.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#pricing" class="rounded-2xl border border-white/20 px-5 py-3 hover:border-sky-400">See Pricing</a>
+          <a id="heroWhatsApp" href="https://wa.me/919764449906?text=Hi%20Sia%20Tattoo%20Studioz%2C%20I%20want%20to%20book%20an%20appointment." target="_blank" rel="noopener" class="rounded-2xl bg-sky-500 hover:bg-sky-400 text-black font-semibold px-5 py-3">Book on WhatsApp</a>
+        </div>
+        <div class="mt-6 text-sm text-neutral-400">Contact: <a class="underline hover:text-sky-300" href="tel:+919764449906">+91 97644 49906</a></div>
+      </div>
+      <div class="relative">
+        <div class="aspect-[4/5] w-full rounded-3xl bg-gradient-to-br from-neutral-800 to-neutral-900 border border-white/10 p-2">
+          <div class="h-full w-full rounded-2xl bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1534531688091-a458257992cb?q=80&w=1200&auto=format&fit=crop');"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      const { useState, useEffect, useMemo } = React;
-      const { motion, AnimatePresence } = window["framer-motion"];
-      const Lucide = window.lucideReact;
-      const { Phone, CalendarDays, Image: ImageIcon, Calculator, Upload, Trash2, Download, PlusCircle, Clock, IndianRupee } = Lucide;
+  <!-- SERVICES -->
+  <section id="services" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl md:text-4xl font-bold">Services</h2>
+    <p class="mt-2 text-neutral-300">We specialize in line art, color work, portraits, 3D tattoos, and piercing.</p>
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="rounded-2xl border border-white/10 p-5 bg-neutral-900/40">
+        <h3 class="font-semibold text-lg">Black Line Art</h3>
+        <p class="text-sm text-neutral-400">Precise lines, clean finish.</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 p-5 bg-neutral-900/40">
+        <h3 class="font-semibold text-lg">Color Line Art</h3>
+        <p class="text-sm text-neutral-400">Vibrant colors that pop.</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 p-5 bg-neutral-900/40">
+        <h3 class="font-semibold text-lg">Portrait Tattoos</h3>
+        <p class="text-sm text-neutral-400">Realistic, detailed portraits.</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 p-5 bg-neutral-900/40">
+        <h3 class="font-semibold text-lg">3D Tattoos</h3>
+        <p class="text-sm text-neutral-400">Depth & dimension that stands out.</p>
+      </div>
+    </div>
+  </section>
 
-      const STUDIO_NAME = "Sia Tattoo Studio";
-      const OWNER_PHONE = "9764449906";
-      const WHATSAPP_LINK = `https://wa.me/91${OWNER_PHONE}`;
+  <!-- PRICING -->
+  <section id="pricing" class="bg-neutral-900/50 border-y border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-16">
+      <h2 class="text-3xl md:text-4xl font-bold">Pricing</h2>
+      <p class="mt-2 text-neutral-300">Transparent rates. Pay only for the size you choose.</p>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div class="rounded-2xl border border-white/10 p-6 bg-neutral-950">
+          <h3 class="font-semibold text-lg">Black (Line Art)</h3>
+          <p class="text-3xl font-extrabold mt-2">₹300<span class="text-base font-semibold text-neutral-400"> / inch</span></p>
+        </div>
+        <div class="rounded-2xl border border-white/10 p-6 bg-neutral-950">
+          <h3 class="font-semibold text-lg">Colour (Line Art)</h3>
+          <p class="text-3xl font-extrabold mt-2">₹350<span class="text-base font-semibold text-neutral-400"> / inch</span></p>
+        </div>
+        <div class="rounded-2xl border border-white/10 p-6 bg-neutral-950">
+          <h3 class="font-semibold text-lg">Portrait</h3>
+          <p class="text-3xl font-extrabold mt-2">₹1000<span class="text-base font-semibold text-neutral-400"> / inch</span></p>
+        </div>
+        <div class="rounded-2xl border border-white/10 p-6 bg-neutral-950">
+          <h3 class="font-semibold text-lg">3D Tattoo</h3>
+          <p class="text-3xl font-extrabold mt-2">₹300<span class="text-base font-semibold text-neutral-400"> / sq. inch</span></p>
+        </div>
+        <div class="rounded-2xl border border-white/10 p-6 bg-neutral-950">
+          <h3 class="font-semibold text-lg">Piercing</h3>
+          <p class="text-3xl font-extrabold mt-2">₹300<span class="text-base font-semibold text-neutral-400"> per piercing</span></p>
+        </div>
+      </div>
 
-      const TABS = [
-        { key: "pricing", label: "Pricing", icon: <Calculator className="w-4 h-4" /> },
-        { key: "gallery", label: "Gallery", icon: <ImageIcon className="w-4 h-4" /> },
-        { key: "appointments", label: "Appointments", icon: <CalendarDays className="w-4 h-4" /> },
-        { key: "about", label: "About", icon: <Phone className="w-4 h-4" /> },
-      ];
-
-      const PRICING = {
-        BLACK_LINEART: 300,
-        COLOUR_LINEART: 350,
-        PIERCING_FLAT: 300,
-        PORTRAIT_PER_INCH: 1000,
-        THREED_PER_SQIN: 300,
-      };
-
-      function Pill({ children }) {
-        return (
-          <span className="inline-flex items-center rounded-full bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-700 ring-1 ring-inset ring-zinc-200">
-            {children}
-          </span>
-        );
-      }
-
-      function SectionCard({ title, icon, children, actions }) {
-        return (
-          <div className="rounded-2xl bg-white shadow-sm ring-1 ring-zinc-200">
-            <div className="flex items-center justify-between border-b border-zinc-100 p-4">
-              <div className="flex items-center gap-2">
-                {icon}
-                <h2 className="text-lg font-semibold">{title}</h2>
-              </div>
-              <div className="flex items-center gap-2">{actions}</div>
-            </div>
-            <div className="p-4">{children}</div>
-          </div>
-        );
-      }
-
-      // Pricing Calculator Component (shortened for brevity)
-      function PricingCalculator() {
-        const [type, setType] = useState("BLACK_LINEART");
-        const [inches, setInches] = useState(1);
-        const [width, setWidth] = useState(1);
-        const [height, setHeight] = useState(1);
-
-        const total = useMemo(() => {
-          switch (type) {
-            case "BLACK_LINEART": return inches * PRICING.BLACK_LINEART;
-            case "COLOUR_LINEART": return inches * PRICING.COLOUR_LINEART;
-            case "PIERCING": return PRICING.PIERCING_FLAT;
-            case "PORTRAIT": return inches * PRICING.PORTRAIT_PER_INCH;
-            case "THREED": return width * height * PRICING.THREED_PER_SQIN;
-            default: return 0;
-          }
-        }, [type, inches, width, height]);
-
-        return (
-          <SectionCard title="Tattoo & Piercing Pricing" icon={<IndianRupee className="w-5 h-5" />}>
-            <p className="mb-2 text-sm text-zinc-600">Estimate pricing for tattoos & piercings</p>
-            <select value={type} onChange={(e) => setType(e.target.value)} className="rounded-xl border p-2">
-              <option value="BLACK_LINEART">Black Line Art (₹300 / inch)</option>
-              <option value="COLOUR_LINEART">Colour Line Art (₹350 / inch)</option>
-              <option value="PIERCING">Piercing (₹300 flat)</option>
-              <option value="PORTRAIT">Portrait (₹1000 / inch)</option>
-              <option value="THREED">3D Tattoo (₹300 / sq. inch)</option>
+      <!-- Quick Estimator -->
+      <div class="mt-10 rounded-2xl border border-white/10 p-6 bg-neutral-950">
+        <h3 class="font-semibold text-xl">Quick Price Estimator</h3>
+        <div class="grid md:grid-cols-3 gap-4 mt-4">
+          <label class="block text-sm">Service
+            <select id="service" class="mt-1 w-full bg-neutral-900 border border-white/10 rounded-xl px-3 py-2">
+              <option value="Black (Line Art)|300|inch">Black (Line Art)</option>
+              <option value="Colour (Line Art)|350|inch">Colour (Line Art)</option>
+              <option value="Portrait|1000|inch">Portrait</option>
+              <option value="3D Tattoo|300|sqinch">3D Tattoo</option>
+              <option value="Piercing|300|each">Piercing</option>
             </select>
-            <div className="mt-4 text-lg font-bold">Total: ₹{total}</div>
-          </SectionCard>
-        );
-      }
-
-      function About() {
-        return (
-          <SectionCard title="Contact Info" icon={<Phone className="w-5 h-5" />}>
-            <p><strong>Studio:</strong> {STUDIO_NAME}</p>
-            <p><strong>Phone:</strong> <a href={`tel:${OWNER_PHONE}`} className="underline">{OWNER_PHONE}</a></p>
-            <a href={WHATSAPP_LINK} target="_blank" className="mt-3 inline-block rounded-xl bg-black px-4 py-2 text-white">WhatsApp Us</a>
-          </SectionCard>
-        );
-      }
-
-      function App() {
-        const [tab, setTab] = useState("pricing");
-        return (
-          <div className="min-h-screen bg-zinc-50 p-4">
-            <h1 className="mb-4 text-2xl font-bold">{STUDIO_NAME}</h1>
-            <div className="flex gap-2 mb-4">
-              {TABS.map((t) => (
-                <button key={t.key} onClick={() => setTab(t.key)} className={`rounded-xl px-3 py-2 ${tab === t.key ? "bg-black text-white" : "bg-white border"}`}>{t.label}</button>
-              ))}
-            </div>
-            {tab === "pricing" && <PricingCalculator />}
-            {tab === "about" && <About />}
+          </label>
+          <label class="block text-sm">Size
+            <input id="size" type="number" min="1" step="1" value="3" class="mt-1 w-full bg-neutral-900 border border-white/10 rounded-xl px-3 py-2" />
+            <small class="text-neutral-400">Use inches; for 3D use square inches.</small>
+          </label>
+          <div class="flex items-end">
+            <button id="estimateBtn" class="w-full rounded-2xl bg-sky-500 hover:bg-sky-400 text-black font-semibold px-5 py-3">Estimate & WhatsApp</button>
           </div>
-        );
-      }
+        </div>
+        <p id="estimateOut" class="mt-3 text-neutral-300"></p>
+      </div>
+    </div>
+  </section>
 
-      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-    </script>
-  </body>
+  <!-- GALLERY -->
+  <section id="gallery" class="max-w-6xl mx-auto px-4 py-16">
+    <div class="flex items-end justify-between">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold">Gallery</h2>
+        <p class="mt-2 text-neutral-300">A few highlights from recent work.</p>
+      </div>
+      <a href="#howto" class="text-sm underline text-neutral-400 hover:text-sky-300">How to replace images</a>
+    </div>
+    <div class="mt-8 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <!-- Replace the image URLs below with your own work photos -->
+      <img class="rounded-2xl border border-white/10" src="https://images.unsplash.com/photo-1597226310525-6d8a7e6d6f1e?q=80&w=1200&auto=format&fit=crop" alt="Tattoo sample 1" />
+      <img class="rounded-2xl border border-white/10" src="https://images.unsplash.com/photo-1553688738-d9fa3ca39c07?q=80&w=1200&auto=format&fit=crop" alt="Tattoo sample 2" />
+      <img class="rounded-2xl border border-white/10" src="https://images.unsplash.com/photo-1595525358422-4f2d3a8d0b88?q=80&w=1200&auto=format&fit=crop" alt="Tattoo sample 3" />
+      <img class="rounded-2xl border border-white/10" src="https://images.unsplash.com/photo-1594620302200-1f8a8d0e8d76?q=80&w=1200&auto=format&fit=crop" alt="Tattoo sample 4" />
+      <img class="rounded-2xl border border-white/10" src="https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=1200&auto=format&fit=crop" alt="Tattoo sample 5" />
+      <img class="rounded-2xl border border-white/10" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop" alt="Tattoo sample 6" />
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section id="location" class="bg-neutral-900/50 border-y border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-16">
+      <h2 class="text-3xl md:text-4xl font-bold">Location</h2>
+      <p class="mt-2 text-neutral-300">Shop No. 2, Sushila Niwas, Opposite Post Office, Near Tulinj Naka, Nallasopara East 401209</p>
+      <div class="mt-6 grid md:grid-cols-2 gap-6 items-start">
+        <div class="rounded-2xl overflow-hidden border border-white/10">
+          <!-- Simple Google Maps embed using the address query -->
+          <iframe title="Map to Sia Tattoo Studioz" class="w-full h-[320px]" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Shop%20No.%202%2C%20Sushila%20Niwas%2C%20Opposite%20Post%20Office%2C%20Near%20Tulinj%20Naka%2C%20Nallasopara%20East%20401209&output=embed"></iframe>
+        </div>
+        <div class="space-y-3 text-sm">
+          <a class="inline-flex items-center gap-2 rounded-2xl bg-neutral-800 border border-white/10 px-4 py-3 hover:border-sky-400" href="https://maps.google.com/?q=Shop%20No.%202%2C%20Sushila%20Niwas%2C%20Opposite%20Post%20Office%2C%20Near%20Tulinj%20Naka%2C%20Nallasopara%20East%20401209" target="_blank" rel="noopener">Open in Google Maps</a>
+          <div>Phone: <a class="underline hover:text-sky-300" href="tel:+919764449906">+91 97644 49906</a></div>
+          <div>WhatsApp: <a class="underline hover:text-sky-300" href="https://wa.me/919764449906" target="_blank" rel="noopener">Click to chat</a></div>
+          <div>Address: Shop No. 2, Sushila Niwas, Opposite Post Office, Near Tulinj Naka, Nallasopara East 401209</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / CTA -->
+  <section id="contact" class="max-w-6xl mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold">Book your appointment</h2>
+        <p class="mt-2 text-neutral-300">Send your design idea, size, placement & preferred date/time. We reply fast on WhatsApp.</p>
+        <form id="waForm" class="mt-6 space-y-3">
+          <input id="name" type="text" placeholder="Your name" class="w-full bg-neutral-900 border border-white/10 rounded-xl px-3 py-3" required>
+          <input id="idea" type="text" placeholder="Tattoo idea (e.g., small rose, forearm)" class="w-full bg-neutral-900 border border-white/10 rounded-xl px-3 py-3" required>
+          <div class="grid grid-cols-2 gap-3">
+            <input id="sizeIn" type="number" min="1" step="1" placeholder="Size (inches)" class="w-full bg-neutral-900 border border-white/10 rounded-xl px-3 py-3" required>
+            <select id="serviceIn" class="w-full bg-neutral-900 border border-white/10 rounded-xl px-3 py-3">
+              <option>Black (Line Art)</option>
+              <option>Colour (Line Art)</option>
+              <option>Portrait</option>
+              <option>3D Tattoo</option>
+              <option>Piercing</option>
+            </select>
+          </div>
+          <input id="dateIn" type="date" class="w-full bg-neutral-900 border border-white/10 rounded-xl px-3 py-3">
+          <button class="w-full rounded-2xl bg-sky-500 hover:bg-sky-400 text-black font-semibold px-5 py-3">Send on WhatsApp</button>
+        </form>
+      </div>
+      <div class="rounded-3xl border border-white/10 p-6 bg-neutral-900/40">
+        <h3 class="font-semibold text-lg">Why choose us</h3>
+        <ul class="list-disc pl-6 mt-3 space-y-2 text-neutral-300">
+          <li>Hygienic studio, single-use needles & professional inks</li>
+          <li>Custom designs & honest pricing</li>
+          <li>Aftercare guidance for best healing</li>
+          <li>Open 7 days — DM to confirm timings</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO -->
+  <section id="howto" class="bg-neutral-900/50 border-y border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-12 text-sm text-neutral-300">
+      <h3 class="text-xl font-semibold">How to update this site</h3>
+      <ol class="list-decimal pl-6 mt-3 space-y-2">
+        <li>Replace gallery image URLs in the <code>#gallery</code> section with your own image links (or place images in the repo and use relative paths like <code>images/photo1.jpg</code>).</li>
+        <li>To change pricing, edit the numbers in the <code>#pricing</code> section and in the Estimator <code>&lt;select id="service"&gt;</code>.</li>
+        <li>WhatsApp number auto-fills: update <code>waNumber</code> in the script if needed.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 text-center text-neutral-400">
+    <div class="max-w-6xl mx-auto px-4">
+      <p>&copy; <span id="year"></span> Sia Tattoo Studioz • All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a id="floatWA" href="https://wa.me/919764449906?text=Hi%20Sia%20Tattoo%20Studioz%2C%20I%20want%20to%20book%20an%20appointment." target="_blank" rel="noopener" class="fixed right-5 bottom-5 inline-flex items-center gap-2 rounded-full bg-green-500 text-black font-semibold px-5 py-3 shadow-lg shadow-green-500/20 hover:bg-green-400">
+    WhatsApp Us
+  </a>
+
+  <script>
+    // ==== Settings
+    const waNumber = '919764449906'; // WhatsApp number in international format without +
+
+    // ==== Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ==== Price Estimator & WA deep-link
+    const serviceEl = document.getElementById('service');
+    const sizeEl = document.getElementById('size');
+    const outEl = document.getElementById('estimateOut');
+    const btn = document.getElementById('estimateBtn');
+
+    function formatINR(n){ return new Intl.NumberFormat('en-IN', { style:'currency', currency:'INR', maximumFractionDigits:0 }).format(n); }
+
+    btn.addEventListener('click', () => {
+      const [name, rate, unit] = serviceEl.value.split('|');
+      const size = Math.max(1, parseInt(sizeEl.value || '1', 10));
+      let total = 0;
+      if (name === 'Piercing') {
+        total = rate * size; // each piercing
+      } else if (unit === 'sqinch') {
+        total = rate * size; // user enters sq inches for 3D
+      } else {
+        total = rate * size; // per inch
+      }
+      outEl.textContent = `Estimated price for ${size} ${unit === 'sqinch' ? 'sq. inches' : 'inches'} (${name}): ${formatINR(total)} (approx)`;
+
+      const msg = encodeURIComponent(`Hi Sia Tattoo Studioz, I want to book:\nService: ${name}\nSize: ${size} ${unit === 'sqinch' ? 'sq. inches' : 'inches'}\nEstimated: ${formatINR(total)}\nMy name: ____\nPreferred date/time: ____`);
+      window.open(`https://wa.me/${waNumber}?text=${msg}`, '_blank');
+    });
+
+    // ==== Contact form -> WhatsApp
+    const form = document.getElementById('waForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const idea = document.getElementById('idea').value.trim();
+      const size = document.getElementById('sizeIn').value.trim();
+      const service = document.getElementById('serviceIn').value;
+      const date = document.getElementById('dateIn').value;
+      const msg = encodeURIComponent(`Hi Sia Tattoo Studioz, I want to book an appointment.\nName: ${name}\nService: ${service}\nIdea: ${idea}\nSize: ${size} inches\nPreferred date: ${date || '—'}`);
+      window.open(`https://wa.me/${waNumber}?text=${msg}`, '_blank');
+    });
+
+    // Ensure all WA buttons use the waNumber above
+    const waLinks = ['navWhatsApp','heroWhatsApp','floatWA'];
+    waLinks.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.href = `https://wa.me/${waNumber}?text=${encodeURIComponent('Hi Sia Tattoo Studioz, I want to book an appointment.')}`;
+    });
+  </script>
+</body>
 </html>
