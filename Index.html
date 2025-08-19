@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sia Tattoo Studio – App</title>
+    <script defer src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script defer src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script defer src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
+    <script defer src="https://unpkg.com/lucide-react/dist/umd/lucide-react.min.js"></script>
+    <script defer src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body class="bg-zinc-50">
+    <div id="root"></div>
+
+    <script type="text/babel">
+      // ————————————————————————————————————————————
+      // The full React code goes here (from earlier app)
+      // ————————————————————————————————————————————
+
+      const { useState, useEffect, useMemo } = React;
+      const { motion, AnimatePresence } = window["framer-motion"];
+      const Lucide = window.lucideReact;
+      const { Phone, CalendarDays, Image: ImageIcon, Calculator, Upload, Trash2, Download, PlusCircle, Clock, IndianRupee } = Lucide;
+
+      const STUDIO_NAME = "Sia Tattoo Studio";
+      const OWNER_PHONE = "9764449906";
+      const WHATSAPP_LINK = `https://wa.me/91${OWNER_PHONE}`;
+
+      const TABS = [
+        { key: "pricing", label: "Pricing", icon: <Calculator className="w-4 h-4" /> },
+        { key: "gallery", label: "Gallery", icon: <ImageIcon className="w-4 h-4" /> },
+        { key: "appointments", label: "Appointments", icon: <CalendarDays className="w-4 h-4" /> },
+        { key: "about", label: "About", icon: <Phone className="w-4 h-4" /> },
+      ];
+
+      const PRICING = {
+        BLACK_LINEART: 300,
+        COLOUR_LINEART: 350,
+        PIERCING_FLAT: 300,
+        PORTRAIT_PER_INCH: 1000,
+        THREED_PER_SQIN: 300,
+      };
+
+      function Pill({ children }) {
+        return (
+          <span className="inline-flex items-center rounded-full bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-700 ring-1 ring-inset ring-zinc-200">
+            {children}
+          </span>
+        );
+      }
+
+      function SectionCard({ title, icon, children, actions }) {
+        return (
+          <div className="rounded-2xl bg-white shadow-sm ring-1 ring-zinc-200">
+            <div className="flex items-center justify-between border-b border-zinc-100 p-4">
+              <div className="flex items-center gap-2">
+                {icon}
+                <h2 className="text-lg font-semibold">{title}</h2>
+              </div>
+              <div className="flex items-center gap-2">{actions}</div>
+            </div>
+            <div className="p-4">{children}</div>
+          </div>
+        );
+      }
+
+      // Pricing Calculator Component (shortened for brevity)
+      function PricingCalculator() {
+        const [type, setType] = useState("BLACK_LINEART");
+        const [inches, setInches] = useState(1);
+        const [width, setWidth] = useState(1);
+        const [height, setHeight] = useState(1);
+
+        const total = useMemo(() => {
+          switch (type) {
+            case "BLACK_LINEART": return inches * PRICING.BLACK_LINEART;
+            case "COLOUR_LINEART": return inches * PRICING.COLOUR_LINEART;
+            case "PIERCING": return PRICING.PIERCING_FLAT;
+            case "PORTRAIT": return inches * PRICING.PORTRAIT_PER_INCH;
+            case "THREED": return width * height * PRICING.THREED_PER_SQIN;
+            default: return 0;
+          }
+        }, [type, inches, width, height]);
+
+        return (
+          <SectionCard title="Tattoo & Piercing Pricing" icon={<IndianRupee className="w-5 h-5" />}>
+            <p className="mb-2 text-sm text-zinc-600">Estimate pricing for tattoos & piercings</p>
+            <select value={type} onChange={(e) => setType(e.target.value)} className="rounded-xl border p-2">
+              <option value="BLACK_LINEART">Black Line Art (₹300 / inch)</option>
+              <option value="COLOUR_LINEART">Colour Line Art (₹350 / inch)</option>
+              <option value="PIERCING">Piercing (₹300 flat)</option>
+              <option value="PORTRAIT">Portrait (₹1000 / inch)</option>
+              <option value="THREED">3D Tattoo (₹300 / sq. inch)</option>
+            </select>
+            <div className="mt-4 text-lg font-bold">Total: ₹{total}</div>
+          </SectionCard>
+        );
+      }
+
+      function About() {
+        return (
+          <SectionCard title="Contact Info" icon={<Phone className="w-5 h-5" />}>
+            <p><strong>Studio:</strong> {STUDIO_NAME}</p>
+            <p><strong>Phone:</strong> <a href={`tel:${OWNER_PHONE}`} className="underline">{OWNER_PHONE}</a></p>
+            <a href={WHATSAPP_LINK} target="_blank" className="mt-3 inline-block rounded-xl bg-black px-4 py-2 text-white">WhatsApp Us</a>
+          </SectionCard>
+        );
+      }
+
+      function App() {
+        const [tab, setTab] = useState("pricing");
+        return (
+          <div className="min-h-screen bg-zinc-50 p-4">
+            <h1 className="mb-4 text-2xl font-bold">{STUDIO_NAME}</h1>
+            <div className="flex gap-2 mb-4">
+              {TABS.map((t) => (
+                <button key={t.key} onClick={() => setTab(t.key)} className={`rounded-xl px-3 py-2 ${tab === t.key ? "bg-black text-white" : "bg-white border"}`}>{t.label}</button>
+              ))}
+            </div>
+            {tab === "pricing" && <PricingCalculator />}
+            {tab === "about" && <About />}
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+  </body>
+</html>
